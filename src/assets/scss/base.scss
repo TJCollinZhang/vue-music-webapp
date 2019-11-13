@@ -1,0 +1,44 @@
+@import "variable";
+
+body, html {
+  line-height: 1;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: $color-background;
+  color: $color-text;
+
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1502110 */
+  src: url('//at.alicdn.com/t/font_1502110_50grheowms.eot');
+  src: url('//at.alicdn.com/t/font_1502110_50grheowms.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1502110_50grheowms.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1502110_50grheowms.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1502110_50grheowms.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1502110_50grheowms.svg#iconfont') format('svg');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-search::before {
+  content: "\e8ef"
+}
+.icon-menu::before {
+  content: "\e7f4"
+}
+.icon-left::before {
+  content: "\e7eb";
+}
