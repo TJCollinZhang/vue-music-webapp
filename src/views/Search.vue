@@ -161,18 +161,18 @@
         .title {
           padding: px2rem(15px) px2rem(5px) 0 px2rem(5px);
           height: px2rem(30px);
-          line-height: 30px;
+          line-height: px2rem(30px);
           font-size: $font-size-small-x;
           color: $color-text-g;
         }
 
         span {
           display: inline-block;
-          padding: 3px 5px;
-          margin: 4px 4px;
-          border: 0.8px solid $color-text-ggg;
-          border-radius: 5px;
-          line-height: 20px;
+          padding: px2rem(3px) px2rem(5px);
+          margin: px2rem(4px) px2rem(4px);
+          border: px2rem(0.8px) solid $color-text-ggg;
+          border-radius: px2rem(5px);
+          line-height: px2rem(20px);
           color: $color-text;
           font-size: $font-size-medium;
         }
@@ -180,9 +180,6 @@
 
       .shortcut-wrapper {
         position: relative;
-        // top: 178px
-        // bottom: 0
-        // width: 90%
         margin: 0 auto;
 
         .shortcut {
@@ -190,19 +187,19 @@
           overflow: hidden;
 
           .hot-key {
-            margin: 0 20px 20px 20px;
+            margin: 0 px2rem(20px) px2rem(20px) px2rem(20px);
 
             .title {
-              margin-bottom: 20px;
+              margin-bottom: px2rem(20px);
               font-size: $font-size-medium;
               color: $color-text;
             }
 
             .item {
               display: inline-block;
-              padding: 5px 10px;
-              margin: 0 20px 10px 0;
-              border-radius: 6px;
+              padding: px2rem(5px) px2rem(10px);
+              margin: 0 px2rem(20px) px2rem(10px) 0;
+              border-radius: px2rem(6px);
               background: $color-highlight-background;
               font-size: $font-size-medium;
               color: $color-text;
@@ -212,17 +209,16 @@
 
         .search-history {
           position: relative;
-          margin: 10px 25px;
+          margin: px2rem(10px) px2rem(25px);
 
           .title {
             display: flex;
             align-items: center;
-            height: 30px;
+            height: px2rem(30px);
             font-size: $font-size-small-x;
             color: $color-text-g;
 
             .text {
-              // font-size: 13px;
               flex: 1;
             }
 
@@ -241,7 +237,7 @@
       .search-result {
         position: relative;
         width: 100%;
-        top: 10px;
+        top: px2rem(10px);
         bottom: 0;
       }
     }

@@ -155,14 +155,14 @@
       display: flex;
       align-items: center;
       width: 100%;
-      height: 40px;
-      padding-left: 16px;
-      border-bottom: 1px solid rgb(228, 228, 228);
+      height: px2rem(40px);
+      padding-left: px2rem(16px);
+      border-bottom: px2rem(1px) solid rgb(228, 228, 228);
 
       .iconfont {
-        font-size: 18px;
+        font-size: px2rem(18px);
         color: $color-text;
-        padding-right: 14px;
+        padding-right: px2rem(14px);
       }
 
       .text {
@@ -177,13 +177,12 @@
 
     .list-wrapper {
       position: absolute;
-      top: 84px;
+      top: px2rem(84px);
       bottom: 0;
       width: 100%;
 
       .list-scroll {
         overflow: hidden;
-        // width: 100%;
         height: 100%;
       }
     }

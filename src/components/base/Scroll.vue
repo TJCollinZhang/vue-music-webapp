@@ -51,6 +51,7 @@
 				if (this.listenScroll) {
 					let _this = this
 					this.scroll.on('scroll', (pos) => {
+						console.log('ss',pos)
 						_this.$emit('scroll', pos)
 					})
 				}

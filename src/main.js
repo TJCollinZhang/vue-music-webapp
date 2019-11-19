@@ -4,9 +4,13 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import "./assets/scss/index.scss"
-
+import VueLazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false
+
+Vue.use(VueLazyload, {
+	loading: require('./assets/images/default.png')
+})
 
 let htmlDom = document.getElementsByTagName('html')[0];
 window.addEventListener('load', () => {
