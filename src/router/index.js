@@ -24,7 +24,18 @@ const routes = [
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
-		component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue')
+		component: () => import(/* webpackChunkName: "about" */ '../views/Search.vue'),
+		children: [
+			{
+				path: 'singer/:id',
+				component: () => import(/* webpackChunkName: "about" */ '../views/SingerDetail.vue'),
+
+			},
+			{
+				path: 'list/:id',
+				component: () => import(/* webpackChunkName: "about" */ '../views/MusicList.vue'),
+			}
+		]
 	},
 	{
 		path: '/user',
@@ -37,7 +48,37 @@ const routes = [
 	{
 		path: '/recommend',
 		name: 'recommend',
-		component: () => import(/* webpackChunkName: "about" */ '../views/Recommend.vue')
+		component: () => import(/* webpackChunkName: "about" */ '../views/Recommend.vue'),
+		children: [
+			{
+				path: ':id',
+				component: () => import(/* webpackChunkName: "about" */ '../views/MusicList.vue'),
+			}
+		]
+
+	},
+	{
+		path: '/rank',
+		name: 'rank',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Rank.vue'),
+		children: [
+			{
+				path: ':id',
+				component: () => import(/* webpackChunkName: "about" */ '../views/RankDetail.vue'),
+			}
+		]
+
+	},
+	{
+		path: '/singer',
+		name: 'singer',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Singer.vue'),
+		children: [
+			{
+				path: ':id',
+				component: () => import(/* webpackChunkName: "about" */ '../views/SingerDetail.vue'),
+			}
+		]
 
 	}
 ]

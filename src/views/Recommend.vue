@@ -84,7 +84,7 @@
 				if (regHttp.test(item.url)) {
 					window.open(item.url)
 				}
-				if (regSong.test(item.url)) {
+				if (regSong.test(item.url) || item.targetId) {
 					getSongDetail(item.targetId).then((res) => {
 						let m = res.data.songs[0]
 						let song = {
@@ -121,6 +121,7 @@
 						//   if (item.)
 						// })
 						let list = res.data.banners
+            console.log('list',list)
 						this.banner = list.splice(4)
 						// console.log(this.banner)
 					} else {

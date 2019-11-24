@@ -14,7 +14,7 @@ export function getSingerDetail (singerId) {
 }
 
 export function getMusic (musicId) {
-  const url = HOST + `/music/url?id=${musicId}`
+  const url = HOST + `/song/url?id=${musicId}`
 
   return axios.get(url)
 }

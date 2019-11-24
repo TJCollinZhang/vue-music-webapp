@@ -8,6 +8,7 @@ export function addClass (el, className) {
 }
 
 export function hasClass (el, className) {
+	// (^|\\s)className(\\s|$)/ |表示或，\s表示空白符，匹配 ^className\s \sclassName\s ^className$ \sclassName$
 	let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
 	return reg.test(el.className)
 }
