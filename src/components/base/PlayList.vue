@@ -13,7 +13,7 @@
             </span>
           </h1>
         </div>
-        <scroll ref="listContent" class="list-content" :data="sequenceList" :refreshDelay="refreshDelay">
+        <scroll ref="listContent" class="list-content" :data="sequenceList" :refresreshDelay="refreshDelay">
           <transition-group name="list" tag="ul">
             <li class="item" ref="listItem"
                 @click="selectItem(item, index)"
@@ -104,7 +104,6 @@
 			},
 			changeMode() {
 				const mode = (this.mode + 1) % 3
-				console.log(this.mode)
 				this.setPlayMode(mode)
 				let list = null
 				if (mode === playMode.random) {
@@ -120,7 +119,6 @@
 					// 返回 index
 					return item.id === this.currentSong.id
 				})
-				console.log('index', index)
 				this.setCurrentIndex(index)
 			},
 			deletOne(item) {
@@ -168,6 +166,7 @@
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
   @import "../../assets/scss/mixin";
+  @import "../../assets/scss/function";
 
   .playlist {
     position: fixed;
@@ -199,20 +198,20 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      border-radius: 8px;
+      border-radius: px2rem(8px);
       background-color: $color-background;
 
       .list-header {
         position: relative;
-        padding: 20px 30px 10px 20px;
+        padding: px2rem(20px) px2rem(30px) px2rem(10px) px2rem(20px);
 
         .title {
           display: flex;
           align-items: center;
 
           .iconfont {
-            margin-right: 10px;
-            font-size: 20px;
+            margin-right: px2rem(10px);
+            font-size: px2rem(20px);
             color: $color-text-g;
           }
 
@@ -239,14 +238,14 @@
       }
 
       .list-content {
-        max-height: 240px;
+        max-height: px2rem(240px);
         overflow: hidden;
 
         .item {
           display: flex;
           align-items: center;
-          height: 40px;
-          padding: 0 30px 0 20px;
+          height: px2rem(40px);
+          padding: 0 px2rem(30px) 0 px2rem(20px);
           overflow: hidden;
 
           &.list-enter-active, &.list-leave-active {
@@ -259,13 +258,13 @@
 
           .fa-volume-up {
             color: $color-theme;
-            margin-right: 5px;
+            margin-right: px2rem(5px);
           }
 
           .text {
             flex: 1;
             @include no-wrap();
-            line-height: 20px;
+            line-height: px2rem(20px);
             font-size: $font-size-medium;
             color: $color-text;
           }
@@ -280,7 +279,7 @@
 
       .list-close {
         text-align: center;
-        line-height: 50px;
+        line-height: px2rem(50px);
         background: $color-background;
         font-size: $font-size-medium-x;
         color: $color-text;

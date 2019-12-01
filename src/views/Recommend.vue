@@ -3,7 +3,9 @@
     <scroll class="recommend-content" ref="scroll" :data="playList">
       <div>
         <div v-show="banner.length" class="decorate"></div>
+
         <div v-if="banner.length" class="slider-wrapper">
+
           <slider>
             <div v-for="item in banner" :key="item.encodeId" @click.stop="selectBanner(item)">
               <img :src="item.imageUrl">
@@ -71,6 +73,16 @@
 			this._getBanner()
 			this._getRecommendList()
 			this._getRecommendMusic()
+			window.addEventListener('resize', () => {
+				let bannerBack = [...this.banner]
+        this.banner =  [];
+				setTimeout(() => {
+					this.banner = bannerBack
+        }, 20)
+				// this.banner = []
+				// console.log('resize')
+				// this._getBanner()
+			})
 			// this.$refs.recommendList.style.
 		},
 		methods: {
@@ -117,13 +129,8 @@
 			_getBanner() {
 				getBanner().then((res) => {
 					if (res.status === ERR_OK) {
-						// let list = res.data.banners.map((item) => {
-						//   if (item.)
-						// })
 						let list = res.data.banners
-            console.log('list',list)
 						this.banner = list.splice(4)
-						// console.log(this.banner)
 					} else {
 						console.error('Banner 获取失败')
 					}
@@ -184,19 +191,20 @@
       position: relative;
       .decorate {
         position: absolute;
-        top: -30vh;
+        top: -32vh;
         z-index: -10;
         background: $color-theme;
         width: 100%;
         height: 50vh;
         vertical-align: inherit;
       }
-
       .slider-wrapper {
+
         width: 96%;
         margin: 0 auto;
         border-radius: 5px;
         overflow: hidden;
+        position: relative;
       }
       .recommend-list {
         position: relative;
@@ -222,48 +230,48 @@
             position: relative;
             display: inline-block;
             width: 100%;
-            margin-bottom: 5px;
+            margin-bottom: px2rem(5px);
             .gradients {
               position: absolute;
               top: 0;
               width: 100%;
-              height: 35px;
-              border-radius: 3px;
+              height: px2rem(35px);
+              border-radius: px2rem(3px);
               background: linear-gradient(rgba(109, 109, 109, 0.4),rgba(255, 255, 255, 0));
             }
             img {
               width: 100%;
               height: 100%;
-              border-radius: 3px;
+              border-radius: px2rem(3px);
             }
           }
           .play-count {
             position: absolute;
-            top: 5px;
-            right: 8px;
+            top: px2rem(5px);
+            right: px2rem(8px);
             font-size: $font-size-small-s;
             color: $color-text-l
           }
           .text {
             float: left;
-            line-height: 16px;
+            line-height: px2rem(16px);
             text-align: left;
-            height: 40px;
-            line-height: 16px;
+            height: px2rem(40px);
+            line-height: px2rem(16px);
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: px2rem(10px);
             font-size: $font-size-small;
           }
         }
       }
       .recommend-song {
-        margin-top: -20px;
+        margin-top: px2rem(-20px);
         box-sizing: border-box;
         width: 100%;
         text-align: center;
         .title {
-          height: 65px;
-          line-height: 65px;
+          height: px2rem(65px);
+          line-height: px2rem(65px);
           padding-left: 1.5%;
           text-align: left;
           font-size: $font-size-medium;
@@ -280,23 +288,23 @@
             position: relative;
             display: inline-block;
             width: 100%;
-            margin-bottom: 5px;
+            margin-bottom: px2rem(5px);
             img {
               width: 100%;
               height: 100%;
-              border-radius: 3px;
+              border-radius: px2rem(3px);
             }
           }
           .text {
-            line-height: 16px;
+            line-height: px2rem(16px);
             text-align: left;
-            height: 16px;
+            height: px2rem(16px);
             @include no-wrap();
             font-size: $font-size-small;
           }
           .singer {
-            line-height: 16px;
-            margin-bottom: 10px;
+            line-height: px2rem(16px);
+            margin-bottom: px2rem(10px);
             text-align: left;
             @include no-wrap();
             font-size: $font-size-small;
