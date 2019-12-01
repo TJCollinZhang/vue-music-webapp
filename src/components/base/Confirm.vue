@@ -58,6 +58,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
   .confirm {
     position: fixed;
     left: 0;
@@ -79,12 +80,12 @@
       transform: translate(-50%, -50%);
       z-index: 999;
       .confirm-content {
-        width: 270px;
-        border-radius: 5px;
+        width: px2rem(270px);
+        border-radius: px2rem(5px);
         background: $color-background;
         .text {
-          padding: 12px 15px;
-          line-height: 22px;
+          padding: px2rem(12px) px2rem(15px);
+          line-height: px2rem(22px);
           text-align: center;
           font-size: $font-size-medium-x;
           color: $color-text;
@@ -96,8 +97,8 @@
           font-size: $font-size-medium-x;
           .operate-btn {
             flex: 1;
-            line-height: 22px;
-            padding: 12px 0;
+            line-height: px2rem(22px);
+            padding: px2rem(12px) 0;
             border-top: 1px solid $color-background;
             color: $color-theme;
             &.left {

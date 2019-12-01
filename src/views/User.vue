@@ -134,9 +134,10 @@
 
     .back {
       position: absolute;
-      .iconfont {
-        padding: px2rem(5px) px2rem(10px);
-        font-size: px2rem(25px);
+      line-height: px2rem(44px);
+      font-size: $font-size-medium-x;
+      left: px2rem(8px);
+      .icon-left {
         color: #fff;
       }
     }

@@ -17,12 +17,13 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../../assets/scss/function";
   .loading {
     width: 100%;
-    height: 40px;
+    height: px2rem(40px);
     text-align: center;
     img {
-      margin-top: 10px;
+      margin-top: px2rem(10px);
     }
   }
 </style>

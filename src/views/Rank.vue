@@ -86,33 +86,34 @@
 <style lang="scss" scoped>
   @import "../assets/scss/variable";
   @import "../assets/scss/mixin";
+  @import "../assets/scss/function";
 
   .rank {
     position: fixed;
     width: 100%;
-    top: 88px;
+    top: px2rem(88px);
     bottom: 0;
 
     .top-list {
       height: 100%;
       overflow: hidden;
-      padding-top: 5px;
+      padding-top: px2rem(5px);
 
       .item {
         display: flex;
-        margin: 0 10px;
+        margin: 0 px2rem(10px);
         padding: 3px 0;
-        height: 100px;
+        height: px2rem(100px);
         border-bottom: 1px solid rgb(228, 228, 228);
 
         &:last-child {
-          padding-bottom: 20px;
+          padding-bottom: px2rem(20px);
         }
 
         .icon {
-          flex: 0 0 100px;
-          width: 100px;
-          height: 100px;
+          flex: 0 0 px2rem(100px);
+          width: px2rem(100px);
+          height: px2rem(100px);
 
           img {
             border-radius: 3px;
@@ -124,16 +125,15 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 0 20px;
-          height: 100px;
+          padding: 0 px2rem(20px);
+          height: px2rem(100px);
           overflow: hidden;
-          // background: $color-dialog-background;
           color: $color-text;
           font-size: $font-size-small-x;
 
           .song {
             @include no-wrap();
-            line-height: 30px;
+            line-height: px2rem(30px);
           }
         }
       }

@@ -8,9 +8,10 @@ const state = {
   singer: {},
   // 播放
   playing: false,
-  // 全屏
+  // 播放器全屏
   fullScreen: false,
-  playlist: [],
+  // 当播放模式不是顺序模式的时候，playlist != sequenceList
+	playlist: [],
   // 顺序列表
   sequenceList: [],
   // 播放模式

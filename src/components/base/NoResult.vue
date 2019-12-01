@@ -22,15 +22,16 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
 
   .no-result {
     text-align: center;
     .no-result-icon {
       color: $color-text-gg;
-      font-size: 50px;
+      font-size: px2rem(50px);
     }
     .no-result-text {
-      margin-top: 30px;
+      margin-top: px2rem(30px);
       font-size: $font-size-medium;
       color: $color-text;
     }

@@ -38,11 +38,12 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
 
   .progress-circle {
     position: relative;
     circle {
-      stroke-width: 8px;
+      stroke-width: px2rem(8px);
       transform-origin: center;
       &.progress-background {
         transform: scale(0.9);

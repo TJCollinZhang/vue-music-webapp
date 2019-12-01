@@ -1,3 +1,4 @@
+@import "function";
 // 颜色定义规范
 $color-background: #F2F3F4;
 $color-background-d: rgba(0, 0, 0, 0.3);
@@ -17,12 +18,12 @@ $color-text-lm: rgb(228, 228, 228);
 $color-text-ll: rgba(255, 255, 255, 0.8);
 
 //字体定义规范
-$font-size-small-ss: 9px;
-$font-size-small-s: 10px;
-$font-size-small: 11px;
-$font-size-small-x: 12px;
-$font-size-medium: 14px;
-$font-size-medium-x: 16px;
-$font-size-large-s: 17px;
-$font-size-large: 18px;
-$font-size-large-x: 22px;
+$font-size-small-ss: px2rem(9px);
+$font-size-small-s: px2rem(10px);
+$font-size-small: px2rem(11px);
+$font-size-small-x: px2rem(12px);
+$font-size-medium: px2rem(14px);
+$font-size-medium-x: px2rem(16px);
+$font-size-large-s: px2rem(17px);
+$font-size-large: px2rem(18px);
+$font-size-large-x: px2rem(22px);

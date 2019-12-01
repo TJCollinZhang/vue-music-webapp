@@ -140,10 +140,12 @@
       height: px2rem(44px);
       background: $color-theme;
 
+
+
       .iconfont {
         position: absolute;
-        left: px2rem(5px);
-        font-size: px2rem(25px);
+        left: px2rem(8px);
+        font-size: $font-size-medium-x;
         color: #fff;
       }
       .search-box {

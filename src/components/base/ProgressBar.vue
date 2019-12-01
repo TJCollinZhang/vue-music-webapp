@@ -93,12 +93,13 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
   .progress-bar {
-    height: 30px;
+    height: px2rem(30px);
     .bar-inner {
       position: relative;
-      top: 13px;
-      height: 4px;
+      top: px2rem(13px);
+      height: px2rem(4px);
       background: rgba(0, 0, 0, 0.3);
       .progress {
         position: absolute;
@@ -107,18 +108,18 @@
       }
       .progress-btn-wrapper {
         position: absolute;
-        left: -8px;
-        top: -13px;
-        width: 30px;
-        height: 30px;
+        left: px2rem(-8px);
+        top: px2rem(-13px);
+        width: px2rem(30px);
+        height: px2rem(30px);
         .progress-btn {
           position: relative;
-          top: 7px;
-          left: 7px;
+          top: px2rem(7px);
+          left: px2rem(7px);
           box-sizing: border-box;
-          width: 16px;
-          height: 16px;
-          border: 5px solid $color-theme-l;
+          width: px2rem(16px);
+          height: px2rem(16px);
+          border: px2rem(5px) solid $color-theme-l;
           border-radius: 50%;
           background: $color-theme;
         }

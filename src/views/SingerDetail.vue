@@ -175,6 +175,7 @@
 <style lang="scss" scoped>
   @import "../assets/scss/variable";
   @import "../assets/scss/mixin";
+  @import "../assets/scss/function";
   .slide-enter-active, .slide-leave-active {
     transition: all 0.2s
   }
@@ -198,22 +199,22 @@
       position: fixed;
       top: 0;
       width: 100%;
-      height: 44px;
+      height: px2rem(44px);
       color: #fff;
       z-index: 100;
       .back {
         position: absolute;
-        top: 0;
-        left: 4px;
-        .fa-angle-left {
-          padding: 5px 10px;
-          font-size: 30px;
+        line-height: px2rem(44px);
+        font-size: $font-size-medium-x;
+        left: px2rem(8px);
+        .icon-left {
+          color: #fff;
         }
       }
       .text {
         position: absolute;
-        left: 38px;
-        line-height: 44px;
+        left: px2rem(38px);
+        line-height: px2rem(44px);
         font-size: $font-size-medium-x;
         @include no-wrap()
       }
@@ -245,25 +246,25 @@
           .text {
             position: absolute;
             width: 80%;
-            height: 40px;
-            bottom: 40px;
-            left: 20px;
+            height: px2rem(40px);
+            bottom: px2rem(40px);
+            left: px2rem(20px);
             color: #fff;
             .list-title {
               position: absolute;
               bottom: 0;
               font-size: $font-size-large-s;
-              line-height: 18px;
+              line-height: px2rem(18px);
               font-weight: bold;
               letter-spacing: 1px;
             }
           }
         }
         .song-list-wrapper {
-          padding: 41px 0 20px 0;
-          border-radius: 10px;
+          padding: px2rem(41px) 0 px2rem(20px) 0;
+          border-radius: px2rem(10px);
           position: relative;
-          top:-20px;
+          top: px2rem(-20px);
           background: $color-background;
           .sequence-play {
             position: absolute;
@@ -272,13 +273,13 @@
             display: flex;
             align-items: center;
             width: 100%;
-            height: 40px;
-            padding-left: 16px;
+            height: px2rem(40px);
+            padding-left: px2rem(16px);
             border-bottom: 1px solid rgb(228, 228, 228);
             .iconfont {
-              font-size: 18px;
+              font-size: px2rem(18px);
               color: $color-text;
-              padding-right: 14px;
+              padding-right: px2rem(14px);
             }
             .text {
               font-size: $font-size-medium-x;

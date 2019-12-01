@@ -47,13 +47,6 @@
 				this._initSlider()
 				this._onScrollEnd()
 			}, 20)
-
-			window.addEventListener('resize', () => {
-				if (!this.slider) {
-					return
-				}
-				this._setSliderWidth(true)
-			})
 		},
 		methods: {
 			_setSliderWidth() {
@@ -114,6 +107,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
   .slider {
     min-height: 1px;
     position: relative;
@@ -136,19 +130,17 @@
       position: absolute;
       right: 0;
       left: 0;
-      bottom: 12px;
+      bottom: px2rem(12px);
       text-align: center;
-      // font-size: 0;
       .dot {
         display: inline-block;
-        margin: 0 4px;
-        width: 8px;
-        height: 8px;
+        margin: 0 px2rem(4px);
+        width: px2rem(8px);
+        height: px2rem(8px);
         border-radius: 50%;
         background: $color-text-l;
         &.active {
-          // width: 10px;
-          border-radius: 5px;
+          border-radius: px2rem(5px);
           background: $color-highlight-background;
         }
       }

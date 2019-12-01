@@ -70,7 +70,6 @@
 		computed: {},
 		methods: {
 			selectList(item) {
-				console.log('item', item)
 				const list = {}
 				list.name = item.name
 				list.id = item.id
@@ -129,7 +128,6 @@
 				})
 			},
 			searchMore() {
-				console.log('searchMore')
 				if (!this.haveMore) {
 					return
 				}

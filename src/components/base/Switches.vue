@@ -33,24 +33,24 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
 
   .switches {
     display: flex;
     align-items: center;
-    width: 240px;
+    width: px2rem(240px);
     margin: 0 auto;
-    // border-radius: 5px;
     .switch-item {
       flex: 1;
-      padding: 8px;
-      margin: 0 20px;
+      padding: px2rem(8px);
+      margin: 0 px2rem(20px);
       text-align: center;
       font-size: $font-size-medium;
       color: $color-text-l;
-      border-bottom: 2px solid $color-theme;
+      border-bottom: px2rem(2px) solid $color-theme;
 
       &.active {
-        border-bottom: 2px solid $color-text-l;
+        border-bottom: px2rem(2px) solid $color-text-l;
         // background: $color-highlight-background;
         color: #fff;
       }

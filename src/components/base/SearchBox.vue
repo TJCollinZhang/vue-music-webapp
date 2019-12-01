@@ -39,6 +39,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
 
   .search-box {
     // position: relative;
@@ -46,15 +47,15 @@
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    height: 25px;
+    height: px2rem(25px);
     border-bottom: 1px solid rgb(235, 235, 235);
     .icon-search {
-      font-size: 24px;
+      font-size: px2rem(24px);
       color: $color-text-g;
     }
     .box {
       flex: 1;
-      line-height: 25px;
+      line-height: px2rem(25px);
       background: $color-theme;
       color: #fff;
       font-size: $font-size-medium;
@@ -66,14 +67,14 @@
     }
     .icon-delete {
       position: absolute;
-      right: 12px;
-      font-size: 14px;
+      right: px2rem(12px);
+      font-size: px2rem(14px);
       color: rgba(255, 255, 255, 0.8);
       border: none;
     }
     .search {
-      padding: 0 5px;
-      font-size: 14px;
+      padding: 0 px2rem(5px);
+      font-size: px2rem(14px);
       color: $color-text;
     }
   }

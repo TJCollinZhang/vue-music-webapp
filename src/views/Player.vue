@@ -8,7 +8,7 @@
         </div>
         <div class="top">
           <div class="back" @click="back">
-            <i class="fa fa-angle-down"></i>
+            <i class="iconfont icon-down"></i>
           </div>
           <h1 class="title" v-html="currentSong.name"></h1>
           <h2 class="subtitle" v-html="currentSong.singer"></h2>
@@ -58,7 +58,7 @@
               <i class="iconfont" @click="togglePlaying" :class="playIcon"></i>
             </div>
             <div class="icon i-right">
-              <i class="iconfont icon-test" @click="next"></i>
+              <i class="iconfont icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
               <i class="iconfont" @click="toggleFavorite(currentSong)" :class="getFavoriteIcon(currentSong)"></i>
@@ -78,11 +78,11 @@
         </div>
         <div class="control" @click.stop="togglePlaying">
           <progress-circle :radius="radius" :percent="percent">
-            <i class="fa" :class="miniIcon"></i>
+            <i class="iconfont" :class="miniIcon"></i>
           </progress-circle>
         </div>
         <div class="control" @click.stop="showPlaylist">
-          <i class="iconfont icon-caidan1"></i>
+          <i class="iconfont icon-list"></i>
         </div>
       </div>
     </transition>
@@ -108,7 +108,6 @@
 		name: "Player",
 		data() {
 			return {
-				// id: '',
 				url: '',
 				songReady: false,
 				currentTime: 0,
@@ -128,7 +127,7 @@
 		computed: {
 			iconMode() {
 				if (this.mode === playMode.sequence) {
-					return 'icon-next'
+					return 'icon-sequence'
 				} else if (this.mode === playMode.loop) {
 					return 'icon-loop'
 				} else {
@@ -139,10 +138,10 @@
 				return this.playing ? 'play' : 'play pause'
 			},
 			miniIcon() {
-				return this.playing ? 'fa-stop' : 'fa-play'
+				return this.playing ? 'icon-mini-stop' : 'icon-mini-play'
 			},
 			playIcon() {
-				return this.playing ? 'icon-stop' : 'icon-bofangicon'
+				return this.playing ? 'icon-stop' : 'icon-play'
 			},
 			updateCurrentLyric() {
 				if (this.noLyric) {
@@ -179,6 +178,7 @@
 			url(newUrl) {
 				this._getLyric(this.currentSong.id)
 				this.$refs.audio.src = newUrl
+        // 获取不到数据，需要等到150ms才能拿到数据
 				let stop = setInterval(() => {
 					this.duration = this.$refs.audio.duration
 					if (this.duration) {
@@ -193,13 +193,11 @@
 		},
 		methods: {
 			firstPlay() {
-				console.log('firstPlay')
 				this.$refs.audio.play()
 			},
 			stopMusic() {
 				// 删除最后一首的时候暂停音乐
 				this.$refs.audio.pause()
-				console.log('删除最后一首的时候暂停音乐')
 			},
 			showPlaylist() {
 				this.$refs.playlist.show()
@@ -413,6 +411,7 @@
 <style lang="scss" scoped>
   @import "../assets/scss/variable";
   @import "../assets/scss/mixin";
+  @import "../assets/scss/function";
 
   .player {
     .normal-player {
@@ -465,18 +464,18 @@
 
       .top {
         position: relative;
-        margin-bottom: 25px;
+        margin-bottom: px2rem(25px);
 
         .back {
           position: absolute;
           top: 0;
-          left: 6px;
+          left: px2rem(6px);
           z-index: 50;
 
-          .fa-angle-down {
+          .icon-down {
             display: block;
-            padding: 5px 9px;
-            font-size: 35px;
+            padding: px2rem(10px) px2rem(9px);
+            font-size: $font-size-large;
             color: $color-theme-l;
           }
         }
@@ -484,8 +483,8 @@
         .title {
           width: 70%;
           margin: 0 auto;
-          padding-top: 10px;
-          line-height: 20px;
+          padding-top: px2rem(10px);
+          line-height: px2rem(20px);
           text-align: center;
           @include no-wrap();
           font-size: $font-size-large;
@@ -496,7 +495,7 @@
         .subtitle {
           width: 70%;
           margin: 0 auto;
-          line-height: 20px;
+          line-height: px2rem(20px);
           text-align: center;
           @include no-wrap();
           font-size: $font-size-small-x;
@@ -509,8 +508,8 @@
         align-items: center;
         position: fixed;
         width: 100%;
-        top: 80px;
-        bottom: 170px;
+        top: px2rem(80px);
+        bottom: px2rem(170px);
         white-space: nowrap;
         font-size: 0;
 
@@ -541,7 +540,7 @@
               width: 100%;
               height: 100%;
               box-sizing: border-box;
-              border: 15px solid rgba(255, 255, 255, 0.1);
+              border: px2rem(15px) solid rgba(255, 255, 255, 0.1);
               border-radius: 50%;
 
               &.play {
@@ -588,7 +587,7 @@
             text-align: center;
 
             .text {
-              line-height: 40px;
+              line-height: px2rem(40px);
               color: $color-text-ggg;
               font-size: $font-size-medium;
 
@@ -598,7 +597,7 @@
             }
 
             .no-lyric {
-              line-height: 40px;
+              line-height: px2rem(40px);
               margin-top: 60%;
               color: $color-text-ggg;
               font-size: $font-size-medium;
@@ -609,7 +608,7 @@
 
       .bottom {
         position: absolute;
-        bottom: 50px;
+        bottom: px2rem(50px);
         width: 100%;
 
         .progress-wrapper {
@@ -617,14 +616,14 @@
           align-items: center;
           width: 80%;
           margin: 0px auto;
-          padding: 10px 0;
+          padding: px2rem(10px) 0;
 
           .time {
             color: $color-text-l;
             font-size: $font-size-small;
-            flex: 0 0 30px;
-            line-height: 30px;
-            width: 30px;
+            flex: 0 0 px2rem(30px);
+            line-height: px2rem(30px);
+            width: px2rem(30px);
 
             &.time-l {
               text-align: left;
@@ -654,11 +653,11 @@
             }
 
             i {
-              font-size: 30px;
+              font-size: px2rem(30px);
             }
 
             .mode {
-              font-size: 25px;
+              font-size: px2rem(30px);
             }
 
             &.i-left {
@@ -666,11 +665,11 @@
             }
 
             &.i-center {
-              padding: 0 20px;
+              padding: 0 px2rem(20px);
               text-align: center;
 
               i {
-                font-size: 40px;
+                font-size: px2rem(40px);
               }
             }
 
@@ -706,7 +705,7 @@
       bottom: 0;
       z-index: 180;
       width: 100%;
-      height: 60px;
+      height: px2rem(60px);
       background: rgba(255, 255, 255, 0.85);
 
       &.mini-enter-active, &.mini-leave-active {
@@ -718,9 +717,9 @@
       }
 
       .icon {
-        flex: 0 0 40px;
-        width: 40px;
-        padding: 0 10px 0 20px;
+        flex: 0 0 px2rem(40px);
+        width: px2rem(40px);
+        padding: 0 px2rem(10px) 0 px2rem(20px);
 
         img {
           border-radius: 50%;
@@ -744,7 +743,7 @@
 
         .name {
           margin-bottom: 2px;
-          line-height: 14px;
+          line-height: px2rem(14px);
           @include no-wrap();
           font-size: $font-size-medium;
           color: $color-text;
@@ -758,35 +757,37 @@
       }
 
       .control {
-        flex: 0 0 30px;
-        width: 30px;
-        padding: 0 10px;
+        flex: 0 0 px2rem(30px);
+        width: px2rem(45px);
+        padding: 0 px2rem(10px);
 
         .icon-play-mini, .icon-pause-mini, .icon-playlist, .iconfont {
-          font-size: 30px;
+          font-size: px2rem(30px);
           color: $color-theme-d;
         }
 
         .iconfont {
           position: relative;
-          left: -5px;
-          top: -3px;
+          left: px2rem(-5px);
+          top: px2rem(-3px);
         }
 
-        .fa-play {
+        .icon-mini-play {
           color: $color-theme-d;
-          font-size: 14px;
+          font-size: px2rem(20px);
           position: absolute;
-          left: 12px;
-          top: 8.5px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-45%, -60%);
         }
 
-        .fa-stop {
+        .icon-mini-stop {
           color: $color-theme-d;
-          font-size: 12px;
+          font-size: px2rem(20px);
           position: absolute;
-          left: 11px;
-          top: 10px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -60%);
         }
       }
     }

@@ -164,6 +164,7 @@
 
 <style lang="scss" scoped>
   @import "../../assets/scss/variable";
+  @import "../../assets/scss/function";
 
   .list-view {
     position: relative;
@@ -173,12 +174,11 @@
     background: $color-background;
 
     .list-group {
-      // padding: 10px 0;
       .list-group-title {
-        height: 20px;
-        line-height: 20px;
-        padding-left: 12px;
-        margin-bottom: 10px;
+        height: px2rem(20px);
+        line-height: px2rem(20px);
+        padding-left: px2rem(12px);
+        margin-bottom: px2rem(10px);
         font-size: $font-size-small;
         color: #fff;
         background: rgba(0, 0, 0, 0.1);
@@ -187,23 +187,23 @@
       .list-group-item {
         display: flex;
         align-items: center;
-        padding: 5px 0;
-        margin: 0 5px;
+        padding: px2rem(5px) 0;
+        margin: 0 px2rem(5px);
         border-bottom: 1px solid rgb(228, 228, 228);
 
         &:last-child {
           border: none;
-          margin-bottom: 10px;
+          margin-bottom: px2rem(10px);
         }
 
         .avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 3px;
+          width: px2rem(50px);
+          height: px2rem(50px);
+          border-radius: px2rem(3px);
         }
 
         .name {
-          margin-left: 20px;
+          margin-left: px2rem(20px);
           color: $color-text;
           font-size: $font-size-medium;
         }
@@ -216,14 +216,14 @@
       right: 3px;
       top: 50%;
       transform: translateY(-50%);
-      width: 20px;
-      padding: 200px 0;
-      border-radius: 3px;
+      width: px2rem(20px);
+      padding: px2rem(200px) 0;
+      border-radius: px2rem(3px);
       text-align: center;
       font-family: Helvetica;
 
       .item {
-        padding: 5px 5px;
+        padding: px2rem(5px) px2rem(5px);
         line-height: 1;
         color: $color-text-g;
         font-size: $font-size-small;
@@ -242,9 +242,9 @@
       width: 100%;
 
       .fixed-title {
-        height: 20px;
-        line-height: 20px;
-        padding-left: 20px;
+        height: px2rem(20px);
+        line-height: px2rem(20px);
+        padding-left: px2rem(20px);
         font-size: $font-size-small;
         color: $color-text-l;
         background: rgba(0, 0, 0, 0.1);
