@@ -4,7 +4,7 @@
       <div class="normal-player" v-show="fullScreen" @touchstart.once="firstPlay">
         <div class="background">
           <div class="filter"></div>
-          <img :src="currentSong.image" width="100%" height="100%">
+          <img v-lazy="currentSong.image" width="100%" height="100%">
         </div>
         <div class="top">
           <div class="back" @click="back">
@@ -18,7 +18,7 @@
             <div class="middle-l" v-show="currentShow === 'cd'">
               <div class="cd-wrapper">
                 <div class="cd" :class="cdCls">
-                  <img :src="currentSong.image" class="image">
+                  <img v-lazy="currentSong.image" class="image">
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click.stop="open">
         <div class="icon">
-          <img :class="cdCls" :src="currentSong.image" width="40" height="40">
+          <img :class="cdCls" v-lazy="currentSong.image" width="40" height="40">
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
@@ -173,20 +173,26 @@
 				}
 				this.$refs.audio.pause()
 				this.$refs.audio.currentTime = 0
-				this._getSong(newVal.id)
+				getSong(newVal.id).then((res) => {
+					this._getLyric(this.currentSong.id)
+          // 从歌单详情中拿到的歌曲列表不包括该歌曲的url，只能再次通过url的id查询，因此不能直接绑定currentSong.url
+					this.$refs.audio.src = res.data.data[0].url
+					this.setPlayingState(true)
+				})
+				// this._getSong(newVal.id)
 			},
-			url(newUrl) {
-				this._getLyric(this.currentSong.id)
-				this.$refs.audio.src = newUrl
-        // 获取不到数据，需要等到150ms才能拿到数据
-				let stop = setInterval(() => {
-					this.duration = this.$refs.audio.duration
-					if (this.duration) {
-						clearInterval(stop)
-					}
-				}, 150)
-				this.setPlayingState(true)
-			},
+			// url(newUrl) {
+			// 	this._getLyric(this.currentSong.id)
+			// 	this.$refs.audio.src = newUrl
+      //   // 获取不到数据，需要等到150ms才能拿到数据
+			// 	let stop = setInterval(() => {
+			// 		this.duration = this.$refs.audio.duration
+			// 		if (this.duration) {
+			// 			clearInterval(stop)
+			// 		}
+			// 	}, 150)
+			// 	this.setPlayingState(true)
+			// },
 			currentTime() {
 				this.percent = this.currentTime / this.duration
 			}
@@ -301,6 +307,8 @@
 			},
 			ready() {
 				this.songReady = true
+        console.log('duration', this.$refs.audio.duration)
+        this.duration = this.$refs.audio.duration
 				this.savePlayHistory(this.currentSong)
 			},
 			next() {
@@ -352,11 +360,11 @@
 					this.currentLyric.togglePlay()
 				}
 			},
-			_getSong(id) {
-				getSong(id).then((res) => {
-					this.url = res.data.data[0].url
-				})
-			},
+			// _getSong(id) {
+			// 	getSong(id).then((res) => {
+			// 		this.url = res.data.data[0].url
+			// 	})
+			// },
 			_getLyric(id) {
 				if (this.currentLyric) {
 					this.currentLyric.stop()
